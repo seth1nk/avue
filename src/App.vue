@@ -3,7 +3,7 @@
     <div class="wrapper">
       <router-view></router-view>
     </div>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   </header>
   <main>
     <TheWelcome />
@@ -19,8 +19,8 @@
         <li><router-link to="/" class="button">Главная</router-link></li>
         <li><router-link to="/about" class="button">О нас</router-link></li>
         <li><router-link to="/contact" class="button">Контакты</router-link></li>
-        <li v-if="isAuthenticated"><router-link to="/repairs" class="button">Ремонты</router-link></li>
-        <li v-if="isAuthenticated"><router-link to="/clients" class="button">Клиенты</router-link></li>
+        <li v-if="isAuthenticated"><router-link to="/parfumes" class="button">Парфюмы</router-link></li>
+        <li v-if="isAuthenticated"><router-link to="/orders" class="button">Заказы</router-link></li>
         <li v-if="!isAuthenticated"><router-link to="/login" class="button">Войти</router-link></li>
         <li v-if="!isAuthenticated"><router-link to="/register" class="button">Зарегистрироваться</router-link></li>
         <li v-if="isAuthenticated" class="welcome-message"><span>Добро пожаловать, {{ username }}</span></li>
@@ -103,9 +103,9 @@ export default {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background: rgba(26, 32, 44, 0.95); /* Тёмный прозрачный фон */
+  background: rgba(255, 245, 224, 0.9); /* Полупрозрачный кремовый фон */
   backdrop-filter: blur(10px);
-  border-left: 1px solid rgba(255, 255, 255, 0.3); /* Белая граница */
+  border-left: 1px solid rgba(230, 81, 0, 0.3); /* Оранжевая граница */
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -125,11 +125,14 @@ export default {
   max-width: 100px;
   height: auto;
   border-radius: 5px;
-  transition: transform 0.3s ease;
+  border: 2px solid #fff5e0; /* Кремовый бордер */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .logo:hover {
   transform: scale(1.05);
+  border-color: #ffab40; /* Яркий оранжевый */
 }
 
 /* Список кнопок */
@@ -148,18 +151,18 @@ export default {
   display: block;
   width: 180px;
   padding: 10px 15px;
-  background: #ff6b6b; /* Яркий розовый фон */
+  background: #ff8c00; /* Оранжевый фон */
   color: #ffffff; /* Белый текст */
   text-decoration: none;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
-  background: #4b0082; /* Тёмный фиолетовый при ховере */
+  background: #e65100; /* Тёмно-оранжевый при ховере */
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -169,11 +172,11 @@ export default {
   display: block;
   width: auto;
   padding: 10px 15px;
-  background: linear-gradient(135deg, #ff6b6b, #4b0082); /* Градиент розовый-фиолетовый */
+  background: linear-gradient(135deg, #ff8c00, #e65100); /* Оранжевый градиент */
   color: #ffffff;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -181,7 +184,7 @@ export default {
 }
 
 .admin-button:hover {
-  background: linear-gradient(135deg, #4b0082, #ff6b6b);
+  background: linear-gradient(135deg, #e65100, #ff8c00);
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -192,10 +195,10 @@ export default {
   width: auto;
   padding: 10px 15px;
   font-size: 16px;
-  color: #ffffff; /* Белый текст */
-  font-weight: bold;
+  color: #2d1b00; /* Тёмно-коричневый текст */
+  font-weight: 600;
   text-align: center;
-  background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
+  background: rgba(255, 204, 128, 0.2); /* Полупрозрачный персиковый фон */
   border-radius: 8px;
 }
 

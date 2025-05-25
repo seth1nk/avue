@@ -1,429 +1,217 @@
 <template>
-  <div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <div class="app-container">
-      <h1 class="page-title">Список клиентов</h1>
-      <div style="text-align: center; margin-bottom: 20px;">
-        <router-link to="/clients/create" class="btn-primary">Добавить клиента</router-link>
+  <main>
+    <div class="container">
+      <h1 class="page-title">О нашем парфюмерном магазине</h1>
+
+      <!-- Блок 1: Ассортимент ароматов -->
+      <div class="content-block fade-in" ref="block1">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2 text-block">
+            <h2 class="text-2xl font-bold mb-4">Ассортимент ароматов</h2>
+            <p class="fs-5">
+              Широкий выбор парфюмов: от свежих цитрусовых до глубоких древесных нот. Eau de Parfum, Eau de Toilette и эксклюзивные композиции.
+            </p>
+          </div>
+          <div class="md:w-1/2 image-block">
+            <img src="/img/11.png" alt="Ассортимент ароматов" class="img-block">
+          </div>
+        </div>
       </div>
-      <div class="table-container">
-        <table class="styled-table clients-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Имя</th>
-              <th>Фамилия</th>
-              <th>Телефон</th>
-              <th>Email</th>
-              <th>Адрес</th>
-              <th>Дата<br>рождения</th>
-              <th>Заметки</th>
-              <th>Фото</th>
-              <th>Действия</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in clients" :key="item.id">
-              <td>{{ (currentPage - 1) * pageSize + index + 1 }}</td>
-              <td>{{ item.first_name || 'N/A' }}</td>
-              <td>{{ item.last_name || 'N/A' }}</td>
-              <td>{{ item.phone || 'N/A' }}</td>
-              <td>{{ item.email || 'N/A' }}</td>
-              <td>{{ item.address || 'N/A' }}</td>
-              <td>{{ item.birth_date || 'N/A' }}</td>
-              <td>{{ item.notes || 'N/A' }}</td>
-              <td>
-                <img v-if="item.photo" :src="`${backendUrl}${item.photo.replace('/img/', '/images/')}`" alt="Client Photo" class="product-image" />
-                <span v-else>N/A</span>
-              </td>
-              <td>
-                <div class="action-buttons">
-                  <router-link :to="`/clients/view/${item.id}`" class="action-btn view-icon"><i class="fas fa-eye"></i></router-link>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p v-if="!clients.length" class="no-data">Нет клиентов</p>
-        <div class="pagination" v-if="totalPages > 1">
-          <button @click="prevPage" :disabled="currentPage === 1">← Предыдущая</button>
-          <span>Страница {{ currentPage }} из {{ totalPages }}</span>
-          <button @click="nextPage" :disabled="currentPage === totalPages">Следующая →</button>
+
+      <!-- Блок 2: Качество ингредиентов -->
+      <div class="content-block fade-in" ref="block2">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2 image-block order-2 md:order-1">
+            <img src="/img/22.jpg" alt="Качество ингредиентов" class="img-block">
+          </div>
+          <div class="md:w-1/2 text-block order-1 md:order-2">
+            <h2 class="text-2xl font-bold mb-4">Качество ингредиентов</h2>
+            <p class="fs-5">
+              Используем только натуральные масла и эссенции от ведущих мировых поставщиков для стойкости и уникальности аромата.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок 3: Персональный подбор -->
+      <div class="content-block fade-in" ref="block3">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2 text-block">
+            <h2 class="text-2xl font-bold mb-4">Персональный подбор</h2>
+            <p class="fs-5">
+              Наши консультанты помогут выбрать аромат, подходящий вашему стилю, настроению и событию.
+            </p>
+          </div>
+          <div class="md:w-1/2 image-block">
+            <img src="/img/33.png" alt="Персональный подбор" class="img-block">
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок 4: Эксклюзивные коллекции -->
+      <div class="content-block fade-in" ref="block4">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2 image-block order-2 md:order-1">
+            <img src="/img/44.jpg" alt="Эксклюзивные коллекции" class="img-block">
+          </div>
+          <div class="md:w-1/2 text-block order-1 md:order-2">
+            <h2 class="text-2xl font-bold mb-4">Эксклюзивные коллекции</h2>
+            <p class="fs-5">
+              Уникальные лимитированные ароматы от известных парфюмерных домов для ценителей роскоши.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок 5: Экологичность -->
+      <div class="content-block fade-in" ref="block5">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2 text-block">
+            <h2 class="text-2xl font-bold mb-4">Экологичность</h2>
+            <p class="fs-5">
+              Упаковка из перерабатываемых материалов и экологически чистое производство для сохранения природы.
+            </p>
+          </div>
+          <div class="md:w-1/2 image-block">
+            <img src="/img/55.jpg" alt="Экологичность" class="img-block">
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      clients: [],
-      currentPage: 1,
-      totalPages: 0,
-      pageSize: 10,
-      backendUrl: 'http://localhost:3000',
-    };
-  },
-  async created() {
-    await this.fetchClients();
-  },
-  methods: {
-    async fetchClients() {
-      try {
-        const response = await fetch(`${this.backendUrl}/api/clients?page=${this.currentPage}`, {
-          method: 'GET',
-          credentials: 'include',
-        });
-        if (!response.ok) {
-          if (response.status === 401) {
-            this.$router.push('/login');
-            return;
-          }
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        this.clients = data.clients || [];
-        this.totalPages = data.totalPages || 0;
-        this.currentPage = data.currentPage || 1;
-      } catch (err) {
-        console.error('Error fetching clients:', err);
-        this.clients = [];
-        this.totalPages = 0;
-      }
-    },
-    async prevPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
-        await this.fetchClients();
-      }
-    },
-    async nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-        await this.fetchClients();
-      }
-    },
-    async deleteClient(id) {
-      if (!confirm('Вы уверены, что хотите удалить этого клиента?')) {
-        return;
-      }
-      try {
-        const response = await fetch(`${this.backendUrl}/delete-client/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        await this.fetchClients();
-      } catch (err) {
-        console.error('Error deleting client:', err);
-        alert(`Ошибка: ${err.message}`);
-      }
-    },
-  },
-};
+  name: 'AboutPage',
+  mounted() {
+    try {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      this.$el.querySelectorAll('.fade-in').forEach((el) => {
+        observer.observe(el);
+      });
+    } catch (err) {
+      console.error('Error setting up IntersectionObserver:', err);
+    }
+  }
+}
 </script>
 
 <style scoped>
-/* Основной контейнер */
-.app-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #e0e0e0, #f5f7fa); /* Светлый градиент */
-  color: #333; /* Темный текст */
+body {
+  background: #e5e7eb;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 2rem;
   text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #2c3e50; /* Темно-синий заголовок */
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Кнопка "Добавить клиента" */
-.btn-primary {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: #3498db; /* Синий фон */
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.fs-5 {
+  font-size: 1.25rem;
+  color: #4b5563;
 }
 
-.btn-primary:hover {
-  background: #e67e22; /* Оранжевый при наведении */
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Настройка таблицы */
-.table-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow-x: auto;
-  background: #ffffff; /* Белый фон */
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-}
-
-.styled-table.clients-table {
-  width: 100%;
-  min-width: 900px; /* Уменьшено для компактности */
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.styled-table.clients-table th,
-.styled-table.clients-table td {
-  padding: 14px 10px;
+.text-center {
   text-align: center;
-  vertical-align: middle;
-  border-bottom: 1px solid #e0e0e0; /* Светлая граница */
-  border-right: 1px solid #e0e0e0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #333; /* Темный текст */
 }
 
-.styled-table.clients-table th {
-  background: linear-gradient(135deg, #3498db, #2980b9); /* Градиент для заголовков */
-  color: #ffffff;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.content-block {
+  margin-bottom: 3rem;
 }
 
-.styled-table.clients-table th:last-child,
-.styled-table.clients-table td:last-child {
-  border-right: none;
+.text-block {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.styled-table.clients-table tbody tr:last-child td {
-  border-bottom: none;
+.text-2xl {
+  font-size: 1.5rem;
+  color: #1f2937;
 }
 
-/* Корректировка для заголовка "Дата рождения" */
-.clients-table th:nth-child(7) {
-  line-height: 1.2; /* Уменьшенный межстрочный интервал */
-  padding: 10px 5px; /* Уменьшенный отступ */
+.font-bold {
+  font-weight: 700;
 }
 
-/* Эффект полос для строк */
-.styled-table.clients-table tbody tr:nth-child(even) {
-  background: #f9fafb; /* Очень светлый серый */
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
-.styled-table.clients-table tbody tr:hover {
-  background: #e6f0fa; /* Светло-голубой при наведении */
-  transition: background 0.3s ease;
-}
-
-/* Настройка ширины столбцов */
-.clients-table th:nth-child(1),
-.clients-table td:nth-child(1) { /* ID */
-  width: 5%;
-  min-width: 40px;
-}
-.clients-table th:nth-child(2),
-.clients-table td:nth-child(2) { /* Имя */
-  width: 10%;
-  min-width: 100px;
-}
-.clients-table th:nth-child(3),
-.clients-table td:nth-child(3) { /* Фамилия */
-  width: 10%;
-  min-width: 100px;
-}
-.clients-table th:nth-child(4),
-.clients-table td:nth-child(4) { /* Телефон */
-  width: 10%;
-  min-width: 100px;
-}
-.clients-table th:nth-child(5),
-.clients-table td:nth-child(5) { /* Email */
-  width: 12%;
-  min-width: 120px;
-  white-space: normal;
-  word-break: break-word;
-}
-.clients-table th:nth-child(6),
-.clients-table td:nth-child(6) { /* Адрес */
-  width: 15%;
-  min-width: 120px;
-  white-space: normal;
-  word-break: break-word;
-}
-.clients-table th:nth-child(7),
-.clients-table td:nth-child(7) { /* Дата рождения */
-  width: 10%;
-  min-width: 100px;
-}
-.clients-table th:nth-child(8),
-.clients-table td:nth-child(8) { /* Заметки */
-  width: 13%;
-  min-width: 120px;
-  white-space: normal;
-  word-break: break-word;
-}
-.clients-table th:nth-child(9),
-.clients-table td:nth-child(9) { /* Фото */
-  width: 5%;
-  min-width: 60px;
-}
-.clients-table th:nth-child(10),
-.clients-table td:nth-child(10) { /* Действия */
-  width: 8%;
-  min-width: 60px;
-}
-
-.product-image {
-  max-width: 60px;
-  max-height: 60px;
-  border-radius: 8px;
-  object-fit: cover;
-  vertical-align: middle;
-  border: 2px solid #3498db;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.no-data {
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 20px;
-  color: #666;
-}
-
-/* Пагинация */
-.pagination {
+.image-block {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  gap: 10px;
-  padding: 20px 0;
 }
 
-.pagination button {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: #3498db;
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.img-block {
+  max-width: 150px;
+  border-radius: 0.25rem;
+  border: 1px solid #e5e7eb;
 }
 
-.pagination button:disabled {
-  background: #bdc3c7;
-  cursor: not-allowed;
-  box-shadow: none;
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.pagination button:hover:not(:disabled) {
-  background: #e67e22;
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.pagination span {
-  color: #2c3e50;
-  font-weight: 600;
-}
-
-/* Действия */
-.action-buttons {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-}
-
-.action-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #3498db;
-  color: #ffffff;
-  font-size: 1rem;
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.action-btn:hover {
-  background: #e67e22;
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.view-icon:hover {
-  background: #2ecc71; /* Зеленый для просмотра */
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .app-container {
-    padding: 15px;
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
   }
 
   .page-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
-  .table-container {
-    padding: 10px;
+  .img-block {
+    max-width: 120px;
   }
 
-  .styled-table.clients-table th,
-  .styled-table.clients-table td {
-    padding: 8px;
-    font-size: 0.9rem;
+  .fs-5 {
+    font-size: 1rem;
   }
 
-  .clients-table th,
-  .clients-table td {
-    min-width: 40px;
-  }
-
-  .product-image {
-    max-width: 40px;
-    max-height: 40px;
-  }
-
-  .pagination button {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
-
-  .action-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
+  .text-2xl {
+    font-size: 1.25rem;
   }
 }
 </style>

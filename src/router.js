@@ -2,23 +2,23 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './components/HomePage.vue';
 import AboutPage from './components/AboutPage.vue';
 import ContactPage from './components/ContactPage.vue';
-import ClientList from './components/ClientList.vue';
-import RepairList from './components/RepairList.vue';
+import OrderList from './components/OrderList.vue';
+import ParfumeList from './components/ParfumeList.vue';
 import LoginPage from './components/LoginPage.vue';
 import RegisterPage from './components/RegisterPage.vue';
-import ViewClient from './components/ViewClient.vue';
-import ViewRepair from './components/ViewRepair.vue';
+import ViewOrder from './components/ViewOrder.vue';
+import ViewParfume from './components/ViewParfume.vue';
 
 const routes = [
   { path: '/', component: HomePage },          
   { path: '/about', component: AboutPage },    
   { path: '/contact', component: ContactPage },
-  { path: '/clients', component: ClientList },
-  { path: '/repairs', component: RepairList },
+  { path: '/orders', component: OrderList },
+  { path: '/parfumes', component: ParfumeList },
   { path: '/login', component: LoginPage },    
   { path: '/register', component: RegisterPage }, 
-  { path: '/view-client/:id', component: ViewClient },
-  { path: '/view-repair/:id', component: ViewRepair },
+  { path: '/view-orders/:id', component: ViewOrder },
+  { path: '/view-parfumes/:id', component: ViewParfume },
 ];
 
 const router = createRouter({

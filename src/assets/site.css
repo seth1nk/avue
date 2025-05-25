@@ -18,9 +18,9 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #e0e0e0, #f5f7fa); /* Светлый градиент */
-    color: #333; /* Темный текст для читаемости */
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #fff3e0, #ffcc80); /* Кремово-персиковый градиент */
+    color: #2d1b00; /* Тёмно-коричневый текст */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@ button {
 
 /* Фокус для кнопок и полей ввода */
 .btn:focus, .btn:active:focus, .nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem #3498db, 0 0 0 0.25rem rgba(52, 152, 219, 0.5); /* Синий акцент */
+    box-shadow: 0 0 0 0.1rem #ff8c00, 0 0 0 0.25rem rgba(255, 140, 0, 0.5); /* Оранжевый акцент */
 }
 
 /* Основной контент */
@@ -57,22 +57,26 @@ main {
 .container {
     max-width: 1200px;
     padding: 20px;
-    background: #ffffff; /* Белый фон */
+    background: rgba(255, 245, 224, 0.9); /* Полупрозрачный кремовый фон */
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Заголовок страницы */
 .page-title {
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #2c3e50; /* Темно-синий текст */
+    color: #2d1b00;
+    background: linear-gradient(90deg, #ff8c00, #e65100); /* Оранжевый градиент */
+    padding: 12px;
+    border-radius: 12px;
 }
 
 /* Блоки контента */
 .content-block {
-    background: #f9fafb; /* Очень светлый серый фон */
+    background: rgba(255, 245, 224, 0.7); /* Полупрозрачный кремовый фон */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -86,7 +90,7 @@ main {
 
 .text-block {
     padding: 20px;
-    background: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон */
+    background: rgba(255, 245, 224, 0.5); /* Полупрозрачный кремовый фон */
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -114,17 +118,18 @@ main {
     height: auto;
     object-fit: cover;
     border-radius: 10px;
-    border: 2px solid #3498db; /* Синяя рамка */
+    border: 2px solid #fff5e0; /* Кремовый бордер */
     transition: transform 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .img-block:hover {
     transform: scale(1.05);
+    border-color: #ffab40; /* Яркий оранжевый */
 }
 
 p.fs-5 {
-    color: #333; /* Темный текст */
+    color: #2d1b00; /* Тёмно-коричневый текст */
     font-size: 1.25rem;
 }
 
@@ -148,7 +153,7 @@ p.fs-5 {
 }
 
 .card {
-    background: #ffffff; /* Белый фон */
+    background: rgba(255, 245, 224, 0.9); /* Полупрозрачный кремовый фон */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -158,7 +163,7 @@ p.fs-5 {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #3498db; /* Синяя рамка */
+    border: 3px solid #ff8c00; /* Оранжевый бордер */
     margin: 15px auto;
     object-fit: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -166,7 +171,7 @@ p.fs-5 {
 
 .card-title,
 .card-text {
-    color: #333; /* Темный текст */
+    color: #2d1b00; /* Тёмно-коричневый текст */
 }
 
 .card-body {
@@ -181,7 +186,7 @@ p.fs-5 {
 
 .card-text strong {
     font-weight: bold;
-    color: #2c3e50; /* Темно-синий */
+    color: #2d1b00;
 }
 
 /* Поля ввода */
@@ -196,10 +201,10 @@ input[type="file"].form-input {
     margin-bottom: 15px;
     border: none;
     outline: none;
-    background: #f1f3f5; /* Светло-серый фон */
+    background: rgba(255, 204, 128, 0.2); /* Полупрозрачный персиковый фон */
     border-radius: 8px;
     font-size: 1rem;
-    color: #333; /* Темный текст */
+    color: #2d1b00;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -209,7 +214,7 @@ input[type="password"]:focus,
 textarea:focus,
 select:focus,
 input[type="file"].form-input:focus {
-    background: #e6e9ec; /* Чуть темнее при фокусе */
+    background: rgba(255, 204, 128, 0.3); /* Чуть темнее при фокусе */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -218,8 +223,8 @@ textarea.form-input {
 }
 
 .form-input option {
-    background: #ffffff; /* Белый фон */
-    color: #333;
+    background: rgba(255, 245, 224, 0.9); /* Полупрозрачный кремовый фон */
+    color: #2d1b00;
 }
 
 /* Чекбоксы */
@@ -232,7 +237,7 @@ textarea.form-input {
 .form-checkbox input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    accent-color: #e67e22; /* Оранжевый */
+    accent-color: #ff8c00; /* Оранжевый */
     cursor: pointer;
 }
 
@@ -245,7 +250,7 @@ button,
     font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
-    background: #3498db; /* Синий фон */
+    background: #ff8c00; /* Оранжевый фон */
     transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -253,37 +258,37 @@ button,
 button:hover,
 .btn:hover {
     transform: translateY(-3px);
-    background: #e67e22; /* Оранжевый при наведении */
+    background: #e65100; /* Тёмно-оранжевый при наведении */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary {
-    background: #3498db;
+    background: #ff8c00;
     color: #ffffff;
 }
 
 .btn-primary:hover {
-    background: #e67e22;
+    background: #e65100;
     transform: scale(1.05);
 }
 
 .btn-secondary {
-    background: #e6e9ec; /* Светлый фон */
-    color: #333;
+    background: rgba(255, 204, 128, 0.2); /* Полупрозрачный персиковый фон */
+    color: #2d1b00;
 }
 
 .btn-secondary:hover {
-    background: #d1d5db;
+    background: rgba(255, 204, 128, 0.3);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-danger {
-    background: #e74c3c; /* Красный */
+    background: #d32f2f; /* Тёмно-красный */
     color: #ffffff;
 }
 
 .btn-danger:hover {
-    background: #c0392b;
+    background: #b71c1c; /* Темнее красный */
     transform: translateY(-3px);
 }
 
@@ -296,12 +301,23 @@ form {
 }
 
 /* Таблицы */
+.table-container {
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(255, 245, 224, 0.9); /* Полупрозрачный кремовый фон */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
 .table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: #ffffff; /* Белый фон */
-    color: #333; /* Темный текст */
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(255, 245, 224, 0.9); /* Полупрозрачный кремовый фон */
+    color: #2d1b00;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -311,20 +327,20 @@ form {
 .table td {
     padding: 15px;
     text-align: center;
-    border-bottom: 1px solid #e0e0e0; /* Светлая граница */
-    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(230, 81, 0, 0.3); /* Оранжевая граница */
+    border-right: 1px solid rgba(230, 81, 0, 0.3);
     background: transparent;
 }
 
 .table th {
-    background: linear-gradient(135deg, #3498db, #2980b9); /* Градиент для заголовков */
-    color: #ffffff;
+    background: rgba(255, 204, 128, 0.3); /* Полупрозрачный персиковый фон */
+    color: #2d1b00;
     font-weight: 600;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .table tbody tr:hover {
-    background: #e6f0fa; /* Светло-голубой при наведении */
+    background: rgba(230, 81, 0, 0.1); /* Лёгкий оранжевый при наведении */
 }
 
 .table thead th:first-child,
@@ -334,6 +350,146 @@ form {
 
 .table tbody tr:last-child td {
     border-bottom: none;
+}
+
+/* Настройка ширины столбцов для таблицы заказов */
+.orders-table th:nth-child(1),
+.orders-table td:nth-child(1) { /* ID */
+    width: 5%;
+    min-width: 50px;
+}
+
+.orders-table th:nth-child(2),
+.orders-table td:nth-child(2) { /* Имя клиента */
+    width: 12%;
+    min-width: 100px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.orders-table th:nth-child(3),
+.orders-table td:nth-child(3) { /* Email клиента */
+    width: 15%;
+    min-width: 120px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.orders-table th:nth-child(4),
+.orders-table td:nth-child(4) { /* Общая сумма */
+    width: 10%;
+    min-width: 80px;
+}
+
+.orders-table th:nth-child(5),
+.orders-table td:nth-child(5) { /* Статус */
+    width: 10%;
+    min-width: 80px;
+}
+
+.orders-table th:nth-child(6),
+.orders-table td:nth-child(6) { /* Метод оплаты */
+    width: 12%;
+    min-width: 100px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.orders-table th:nth-child(7),
+.orders-table td:nth-child(7) { /* Метод доставки */
+    width: 12%;
+    min-width: 100px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.orders-table th:nth-child(8),
+.orders-table td:nth-child(8) { /* Адрес доставки */
+    width: 15%;
+    min-width: 120px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.orders-table th:nth-child(9),
+.orders-table td:nth-child(9) { /* Фото */
+    width: 8%;
+    min-width: 80px;
+}
+
+.orders-table th:nth-child(10),
+.orders-table td:nth-child(10) { /* Действия */
+    width: 12%;
+    min-width: 100px;
+}
+
+/* Настройка ширины столбцов для таблицы парфюмов */
+.parfumes-table th:nth-child(1),
+.parfumes-table td:nth-child(1) { /* ID */
+    width: 5%;
+    min-width: 50px;
+}
+
+.parfumes-table th:nth-child(2),
+.parfumes-table td:nth-child(2) { /* Название */
+    width: 15%;
+    min-width: 120px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.parfumes-table th:nth-child(3),
+.parfumes-table td:nth-child(3) { /* Тип */
+    width: 10%;
+    min-width: 80px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.parfumes-table th:nth-child(4),
+.parfumes-table td:nth-child(4) { /* Объем (мл) */
+    width: 8%;
+    min-width: 80px;
+}
+
+.parfumes-table th:nth-child(5),
+.parfumes-table td:nth-child(5) { /* Цена */
+    width: 10%;
+    min-width: 80px;
+}
+
+.parfumes-table th:nth-child(6),
+.parfumes-table td:nth-child(6) { /* В наличии */
+    width: 8%;
+    min-width: 80px;
+}
+
+.parfumes-table th:nth-child(7),
+.parfumes-table td:nth-child(7) { /* Описание */
+    width: 20%;
+    min-width: 150px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.parfumes-table th:nth-child(8),
+.parfumes-table td:nth-child(8) { /* Гендер */
+    width: 10%;
+    min-width: 80px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.parfumes-table th:nth-child(9),
+.parfumes-table td:nth-child(9) { /* Фото */
+    width: 8%;
+    min-width: 80px;
+}
+
+.parfumes-table th:nth-child(10),
+.parfumes-table td:nth-child(10) { /* Действия */
+    width: 12%;
+    min-width: 100px;
 }
 
 /* Статусы */
@@ -346,31 +502,31 @@ form {
 }
 
 .status.available {
-    background: #2ecc71; /* Зеленый */
+    background: #2e7d32; /* Тёмно-зелёный */
 }
 
 .status.unavailable {
-    background: #7f8c8d; /* Серый */
+    background: #d32f2f; /* Тёмно-красный */
 }
 
 .status.pending {
-    background: #3498db; /* Синий */
+    background: #ff8c00; /* Оранжевый */
 }
 
 .status.in-progress {
-    background: #e67e22; /* Оранжевый */
+    background: #e65100; /* Тёмно-оранжевый */
 }
 
 .status.completed {
-    background: #2ecc71; /* Зеленый */
+    background: #2e7d32; /* Тёмно-зелёный */
 }
 
 .status.cancelled {
-    background: #7f8c8d; /* Серый */
+    background: #d32f2f; /* Тёмно-красный */
 }
 
 .status.on-remote {
-    background: #e74c3c; /* Красный */
+    background: #d32f2f; /* Тёмно-красный */
 }
 
 /* Пагинация */
@@ -392,7 +548,7 @@ form {
     font-size: 14px;
     font-weight: 600;
     color: #ffffff;
-    background: #3498db; /* Синий */
+    background: #ff8c00; /* Оранжевый */
     text-decoration: none;
     transition: transform 0.2s ease, background 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -400,16 +556,16 @@ form {
 
 .pagination-item:hover:not(.disabled) {
     transform: translateY(-3px);
-    background: #e67e22; /* Оранжевый */
+    background: #e65100; /* Тёмно-оранжевый */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .pagination-item.active {
-    background: #e67e22; /* Оранжевый */
+    background: #e65100; /* Тёмно-оранжевый */
 }
 
 .pagination-item.disabled {
-    background: #bdc3c7; /* Серый */
+    background: #d9a366; /* Светло-коричневый */
     cursor: not-allowed;
     box-shadow: none;
 }
@@ -423,38 +579,66 @@ form {
 
 .action-btn {
     background: none;
-    color: #3498db; /* Синий */
+    color: #ff8c00; /* Оранжевый */
     font-size: 1.2rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .action-btn:hover {
     transform: scale(1.2);
-    color: #e67e22; /* Оранжевый */
+    color: #e65100; /* Тёмно-оранжевый */
 }
 
 .view-icon {
-    color: #3498db;
+    color: #ff8c00;
 }
 
 .view-icon:hover {
-    color: #2ecc71; /* Зеленый */
+    color: #2e7d32; /* Тёмно-зелёный */
 }
 
 .edit-icon {
-    color: #3498db;
+    color: #ff8c00;
 }
 
 .edit-icon:hover {
-    color: #f1c40f; /* Желтый */
+    color: #ffab40; /* Яркий оранжевый */
 }
 
 .delete-icon {
-    color: #3498db;
+    color: #ff8c00;
 }
 
 .delete-icon:hover {
-    color: #e74c3c; /* Красный */
+    color: #d32f2f; /* Тёмно-красный */
+}
+
+/* Изображения продуктов */
+.product-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    vertical-align: middle;
+    border: 2px solid #fff5e0; /* Кремовый бордер */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-image:hover {
+    border-color: #ffab40; /* Яркий оранжевый */
+    transform: scale(1.03);
+}
+
+.product-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-image-container .product-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
 }
 
 /* Анимация появления */
@@ -518,5 +702,28 @@ form {
 
     .image-block-centered {
         margin-bottom: 15px;
+    }
+
+    .product-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .product-image-container .product-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    .orders-table th,
+    .orders-table td,
+    .parfumes-table th,
+    .parfumes-table td {
+        min-width: 60px;
     }
 }
