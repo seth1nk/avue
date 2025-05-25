@@ -31,7 +31,7 @@ export default {
           email: this.email,
           password: this.password,
         });
-        const response = await fetch('http://localhost:3000/auth/login', {
+        const response = await fetch('https://anode-e5cz.onrender.com/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include', 
