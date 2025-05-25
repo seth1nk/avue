@@ -38,7 +38,7 @@ export default {
       order: null,
       loading: true,
       errorMessage: null,
-      backendUrl: 'http://localhost:3000',
+      backendUrl: 'https://anode-e5cz.onrender.com',
     };
   },
   async created() {
